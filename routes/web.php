@@ -28,9 +28,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware('auth')->group(function () {
     // manajemen paket
-    Route::get('/paket', [PaketController::class, 'index']);
-    Route::get('/paket/form', [PaketController::class, 'create']);
-    Route::post('/paket', [PaketController::class, 'store']);
+    Route::get('/paket', [PaketsController::class, 'index']);
+    Route::get('/paket/form', [PaketsController::class, 'create']);
+    Route::post('/paket', [PaketsController::class, 'store']);
+    Route::get('/paket/edit/{id}', [PaketsController::class, 'edit']);
+    Route::put('/paket/{id}', [PaketsController::class, 'update']);
 });
 
 Auth::routes();

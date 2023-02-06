@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode')->unique();
             $table->string('nm_paket');
+            $table->string('harga_paket');
             $table->timestamps();
         });
     }
