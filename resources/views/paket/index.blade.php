@@ -52,7 +52,7 @@
                     <td>{{$item->kode}}</td>
                     <td>{{$item->paket}}</td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-info">edit</a>
+                        <a href="/paket/edit/{{$item->id}}" class="btn btn-sm btn-info">edit</a>
                         <a href="#" class="btn btn-sm btn-danger">hapus</a>
                     </td>
                   </tr>
