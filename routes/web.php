@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PaketController;
+use App\Http\Controllers\PemesanansController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +27,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
-    // manajemen paket
-    Route::get('/paket', [PaketsController::class, 'index']);
-    Route::get('/paket/form', [PaketsController::class, 'create']);
-    Route::post('/paket', [PaketsController::class, 'store']);
-    Route::get('/paket/edit/{id}', [PaketsController::class, 'edit']);
-    Route::put('/paket/{id}', [PaketsController::class, 'update']);
+    // manajemen pemesanan
+    Route::get('/pemesanan', [PemesanansController::class, 'index']);
+    Route::get('/pemesanan/form', [PemesanansController::class, 'create']);
+    Route::post('/pemesanan', [PemesanansController::class, 'store']);
+    Route::get('/pemesanan/edit/{id}', [PemesanansController::class, 'edit']);
+    Route::put('/pemesanan/{id}', [PemesanansController::class, 'update']);
 });
 
 Auth::routes();
