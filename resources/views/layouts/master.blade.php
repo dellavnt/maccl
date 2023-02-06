@@ -228,7 +228,7 @@
           </li>
           <li class="nav-item">
             <a href="/paket" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+                <i class="bi bi-shop-window"></i>
               <p>
                 Jenis Paket
               </p>
@@ -236,7 +236,7 @@
           </li>
           <li class="nav-item">
             <a href="/pemesanan" class="nav-link">
-              <i class="nav-icon fas fa-user-tie"></i>
+                <i class="bi bi-minecart"></i>
               <p>
                 Pemesanan
               </p>
