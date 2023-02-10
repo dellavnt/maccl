@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Paket;
+use App\Models\Pakets;
+use App\Models\Pemesanans;
 
 class PaketsController extends Controller
 {
@@ -15,7 +16,7 @@ class PaketsController extends Controller
     public function index()
     {
         $nomor = 1;
-        $paket = Paket::all();
+        $paket = Pakets::all();
         return view('paket.index',compact('nomor','paket'));
     }
 
@@ -37,7 +38,7 @@ class PaketsController extends Controller
      */
     public function store(Request $request)
     {
-        $paket = new Paket;
+        $paket = new Pakets;
 
         $paket->kode = $request->kode;
         $paket->paket = $request->paket;
@@ -65,7 +66,7 @@ class PaketsController extends Controller
      */
     public function edit($id)
     {
-        $paket = Paket::find($id);
+        $paket = Pakets::find($id);
         return view('paket.edit',compact('paket'));
     }
 
@@ -78,7 +79,7 @@ class PaketsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $paket = Paket::find($id);
+        $paket = Pakets::find($id);
 
         $paket->kode = $request->kode;
         $paket->paket = $request->paket;
@@ -95,7 +96,7 @@ class PaketsController extends Controller
      */
     public function destroy($id)
     {
-        $paket = Paket::find($id);
+        $paket = Pakets::find($id);
         $paket->delete();
 
         return redirect('/paket');

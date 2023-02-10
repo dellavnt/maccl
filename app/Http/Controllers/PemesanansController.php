@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pemesanan;
+use App\Models\Pemesanans;
 
 class PemesanansController extends Controller
 {
@@ -15,7 +15,7 @@ class PemesanansController extends Controller
     public function index()
     {
         $nomor = 1;
-        $pemesanan = Pemesanan::all();
+        $pemesanan = Pemesanans::all();
         return view('pemesanan.index',compact('nomor','pemesanan'));
     }
 
@@ -37,7 +37,7 @@ class PemesanansController extends Controller
      */
     public function store(Request $request)
     {
-        $pemesanan = new Pemesanan;
+        $pemesanan = new Pemesanans;
 
         $pemesanan->kode = $request->kode;
         $pemesanan->pemesanan = $request->pemesanan;
@@ -65,7 +65,7 @@ class PemesanansController extends Controller
      */
     public function edit($id)
     {
-        $pemesanan = Pemesanan::find($id);
+        $pemesanan = Pemesanans::find($id);
         return view('pemesanan.edit',compact('pemesanan'));
     }
 
@@ -78,13 +78,13 @@ class PemesanansController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pemesanan = Pemesanan::find($id);
+        $pemesanan = Pemesanans::find($id);
 
         $pemesanan->kode = $request->kode;
         $pemesanan->pemesanan = $request->pemesanan;
         $pemesanan->save();
 
-        return redirect('/jurusan');
+        return redirect('/pemesanan');
     }
 
     /**
@@ -95,7 +95,7 @@ class PemesanansController extends Controller
      */
     public function destroy($id)
     {
-        $pemesanan = Pemesanan::find($id);
+        $pemesanan = Pemesanans::find($id);
         $pemesanan->delete();
 
         return redirect('/pemesanan');
