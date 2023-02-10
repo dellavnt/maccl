@@ -36,18 +36,7 @@
         </div>
       </div>
       <div class="card-body">
-        <form method="POST" action="/pemesanan">
-            @csrf
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Kode</label>
-              <input type="text" name="kode" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Pemesanan</label>
-              <input type="text" name="pemesanan" class="form-control" id="exampleInputPassword1">
-            </div>
-            <button type="submit" class="btn btn-primary">Tambah Data</button>
-          </form>
+
       </div>
       <!-- /.card-body -->
       

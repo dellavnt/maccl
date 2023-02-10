@@ -5,12 +5,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Pemesanan</h1>
+          <h1>Data Pemesanan</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Pemesanan</li>
+            <li class="breadcrumb-item active">Data Pemesanan</li>
           </ol>
         </div>
       </div>
@@ -41,7 +41,11 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Kode</th>
-                <th scope="col">Pemesanan</th>
+                <th scope="col">Nama Mitra</th>
+                <th scope="col">No HP</th>
+                <th scope="col">Alamat</th>
+                <th scope="col">Paket</th>
+                <th scope="col">Harga Pemesanan</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -50,7 +54,11 @@
                 <tr>
                     <th scope="row">{{$nomor++}}</th>
                     <td>{{$item->kode}}</td>
-                    <td>{{$item->pemesanan}}</td>
+                    <td>{{$item->nm_mitra}}</td>
+                    <td>{{$item->no_hp}}</td>
+                    <td>{{$item->alamat}}</td>
+                    <td>{{$item->nm_paket}}</td>
+                    <td>{{$item->harga_paket}}</td>
                     <td>
                         <a href="/pemesanan/edit/{{$item->id}}" class="btn btn-sm btn-info">edit</a>
                         <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-default{{$item->id}}">
@@ -66,7 +74,7 @@
                                 </button>
                               </div>
                               <div class="modal-body">
-                                <p>Yakin data pemesanan {{$item->jurusan}} ingin dihapus?</p>
+                                <p>Yakin data pemesanan {{$item->pemesanan}} ingin dihapus?</p>
                               </div>
                               <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
