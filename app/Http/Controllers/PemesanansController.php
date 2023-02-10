@@ -40,7 +40,11 @@ class PemesanansController extends Controller
         $pemesanan = new Pemesanans;
 
         $pemesanan->kode = $request->kode;
-        $pemesanan->pemesanan = $request->pemesanan;
+        $pemesanan->nm_mitra = $request->nm_mitra;
+        $pemesanan->no_hp = $request->no_hp;
+        $pemesanan->alamat = $request->alamat;
+        $pemesanan->nm_paket = $request->nm_paket;
+        $pemesanan->harga_paket = $request->harga_paket;
         $pemesanan->save();
 
         return redirect('/pemesanan');

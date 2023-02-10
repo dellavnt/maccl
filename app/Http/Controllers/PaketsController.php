@@ -27,7 +27,8 @@ class PaketsController extends Controller
      */
     public function create()
     {
-        return view('paket.form');
+        $pemesanan = Pemesanans::all();
+        return view('paket.form',compact('pemesanan'));
     }
 
     /**
@@ -41,7 +42,8 @@ class PaketsController extends Controller
         $paket = new Pakets;
 
         $paket->kode = $request->kode;
-        $paket->paket = $request->paket;
+        $paket->nm_paket = $request->nm_paket;
+        $paket->harga_paket = $request->harga_paket;
         $paket->save();
 
         return redirect('/paket');
