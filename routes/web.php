@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/pemesanan', [PemesanansController::class, 'store']);
     Route::get('/pemesanan/edit/{id}', [PemesanansController::class, 'edit']);
     Route::put('/pemesanan/{id}', [PemesanansController::class, 'update']);
+    Route::delete('/pemesanan/{id}', [JurusanController::class, 'destroy']);
 });
 
 Auth::routes();
