@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pemesanans extends Model
+class Franchisee extends Model
 {
-    use HasFactory;
+    public function Franchisee()
+    {
+        return $this->belongsTo(paket::class);
+    }
 }
