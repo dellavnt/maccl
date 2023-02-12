@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pemesanans;
+use App\Models\Franchisee;
+use App\Models\Paket;
 
-class PemesanansController extends Controller
+class FranchiseeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class PemesanansController extends Controller
     public function index()
     {
         $nomor = 1;
-        $pemesanan = Pemesanans::all();
-        return view('pemesanan.index',compact('nomor','pemesanan'));
+        $franchisee = Franchisee::all();
+        return view('franchisee.index',compact('nomor','franchisee'));
     }
 
     /**
@@ -26,7 +27,8 @@ class PemesanansController extends Controller
      */
     public function create()
     {
-        return view('pemesanan.form');
+        $paket = Paket::all();
+        return view('franchisee.form',compact('paket'));
     }
 
     /**
@@ -37,17 +39,15 @@ class PemesanansController extends Controller
      */
     public function store(Request $request)
     {
-        $pemesanan = new Pemesanans;
+        $franchisee = new Franchisee;
 
-        $pemesanan->kode = $request->kode;
-        $pemesanan->nm_mitra = $request->nm_mitra;
-        $pemesanan->no_hp = $request->no_hp;
-        $pemesanan->alamat = $request->alamat;
-        $pemesanan->nm_paket = $request->nm_paket;
-        $pemesanan->harga_paket = $request->harga_paket;
-        $pemesanan->save();
+        $franchisee->nama = $request->nama;
+        $franchisee->no_hp = $request->no_hp;
+        $franchisee->alamat = $request->alamat;
+        $franchisee->paket_id = $request->nm_paket;
+        $franchisee->save();
 
-        return redirect('/pemesanan');
+        return redirect('/franchisee');
     }
 
     /**
@@ -69,8 +69,9 @@ class PemesanansController extends Controller
      */
     public function edit($id)
     {
-        $pemesanan = Pemesanans::find($id);
-        return view('pemesanan.edit',compact('pemesanan'));
+        $franchisee = Franchisee::find($id);
+        $paket      = Paket::all();
+        return view('franchisee.edit',compact('franchisee','paket'));
     }
 
     /**
@@ -82,13 +83,15 @@ class PemesanansController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pemesanan = Pemesanans::find($id);
+        $franchisee = Franchisee::find($id);
 
-        $pemesanan->kode = $request->kode;
-        $pemesanan->pemesanan = $request->pemesanan;
-        $pemesanan->save();
+        $franchisee->nama = $request->nama;
+        $franchisee->no_hp = $request->no_hp;
+        $franchisee->alamat = $request->alamat;
+        $franchisee->paket_id = $request->nm_paket;
+        $franchisee->save();
 
-        return redirect('/pemesanan');
+        return redirect('/franchisee');
     }
 
     /**
@@ -99,9 +102,9 @@ class PemesanansController extends Controller
      */
     public function destroy($id)
     {
-        $pemesanan = Pemesanans::find($id);
-        $pemesanan->delete();
+        $franchisee = Franchisee::find($id);
+        $franchisee->delete();
 
-        return redirect('/pemesanan');
+        return redirect('/franchisee');
     }
 }
