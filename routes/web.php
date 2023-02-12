@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PemesanansController;
+use App\Http\Controllers\PaketController;
+use App\Http\Controllers\FranchiseeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,22 +29,20 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
-    // manajemen pemesanan
-    Route::get('/pemesanan', [PemesanansController::class, 'index']);
-    Route::get('/pemesanan/form', [PemesanansController::class, 'create']);
-    Route::post('/pemesanan', [PemesanansController::class, 'store']);
-    Route::get('/pemesanan/edit/{id}', [PemesanansController::class, 'edit']);
-    Route::put('/pemesanan/{id}', [PemesanansController::class, 'update']);
-    Route::delete('/pemesanan/{id}', [PemesanansController::class, 'destroy']);
+    // manajemen franchisee
+    Route::get('/franchisee', [FranchiseeController::class, 'index']);
+    Route::get('/franchisee/form', [FranchiseeController::class, 'create']);
+    Route::post('/franchisee', [FranchiseeController::class, 'store']);
+    Route::get('/franchisee/edit/{id}', [FranchiseeController::class, 'edit']);
+    Route::put('/franchisee/{id}', [FranchiseeController::class, 'update']);
+    Route::delete('/franchisee/{id}', [FranchiseeController::class, 'destroy']);
     
-    Route::get('/paket', [PaketsController::class, 'index']);
-    Route::get('/paket/form', [PaketsController::class, 'create']);
-    Route::post('/paket', [PaketsController::class, 'store']);
-    Route::get('/paket/edit/{id}', [PaketsController::class, 'edit']);
-    Route::put('/paket/{id}', [PaketsController::class, 'update']);
-    Route::delete('/paket/{id}', [PaketsController::class, 'destroy']);
+    // manajemen paket
+    Route::get('/paket', [PaketController::class, 'index']);
+    Route::get('/paket/form', [PaketController::class, 'create']);
+    Route::post('/paket', [PaketController::class, 'store']);
+    Route::get('/paket/edit/{id}', [PaketController::class, 'edit']);
+    Route::put('/paket/{id}', [PaketController::class, 'update']);
+    Route::delete('/paket/{id}', [PaketController::class, 'destroy']);
+    
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
