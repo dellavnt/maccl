@@ -1,16 +1,17 @@
 @extends('layouts.master')
-@section('judul','Pemesanan')
+@section('judul','Franchisee')
 @section('content-header')
+
 <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Data Pemesanan</h1>
+          <h1>Daftar Sekarang</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Data Pemesanan</li>
+            <li class="breadcrumb-item active">Data Franchisee</li>
           </ol>
         </div>
       </div>
@@ -24,7 +25,7 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <a href="/pemesanan/form" class="btn btn-primary">Tambah Data</a>
+        <a href="/franchisee/form" class="btn btn-primary">Tambah Data</a>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -35,32 +36,29 @@
           </button>
         </div>
       </div>
+
       <div class="card-body">
-        <table class="table table-striped">
+        <table class="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Kode</th>
-                <th scope="col">Nama Mitra</th>
+                <th scope="col">Nama</th>
                 <th scope="col">No HP</th>
                 <th scope="col">Alamat</th>
                 <th scope="col">Paket</th>
-                <th scope="col">Harga Pemesanan</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
-                @foreach ($pemesanan as $item)
+                @foreach ($franchisee as $item)
                 <tr>
                     <th scope="row">{{$nomor++}}</th>
-                    <td>{{$item->kode}}</td>
-                    <td>{{$item->nm_mitra}}</td>
+                    <td>{{$item->nama}}</td>
                     <td>{{$item->no_hp}}</td>
                     <td>{{$item->alamat}}</td>
                     <td>{{$item->nm_paket}}</td>
-                    <td>{{$item->harga_paket}}</td>
                     <td>
-                        <a href="/pemesanan/edit/{{$item->id}}" class="btn btn-sm btn-info">edit</a>
+                        <a href="/franchisee/edit/{{$item->id}}" class="btn btn-sm btn-info">edit</a>
                         <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-default{{$item->id}}">
                           hapus
                         </button>
@@ -74,11 +72,11 @@
                                 </button>
                               </div>
                               <div class="modal-body">
-                                <p>Yakin data pemesanan {{$item->pemesanan}} ingin dihapus?</p>
+                                <p>Yakin data franchisee {{$item->franchisee}} ingin dihapus?</p>
                               </div>
                               <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                <form action="/pemesanan/{{$item->id}}" method="POST">
+                                <form action="/franchisee/{{$item->id}}" method="POST">
                                   @method('DELETE')
                                   @csrf
                                   <button type="submit" class="btn btn-primary">Hapus</button>
