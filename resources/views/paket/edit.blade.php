@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('judul','Edit Data Paket')
 @section('content-header')
+
 <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
@@ -24,7 +25,7 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-
+        <h3 class="card-title">Title</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -35,17 +36,22 @@
           </button>
         </div>
       </div>
+
       <div class="card-body">
         <form method="POST" action="/paket/{{$paket->id}}">
             @method('PUT')
             @csrf
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Kode</label>
-              <input type="text" name="kode" readonly VALUE="{{$paket->kode}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" name="kode" value="{{$paket->kode}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Paket</label>
-              <input type="text" VALUE="{{$paket->paket}}" name="paket" class="form-control" id="exampleInputPassword1">
+              <label for="exampleInputPassword1" class="form-label"> Nama Paket</label>
+              <input type="text" name="nm_paket" value="{{$paket->nm_paket}}" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Harga</label>
+              <input type="text" name="harga" value="{{$paket->harga}}"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Edit Data</button>
           </form>

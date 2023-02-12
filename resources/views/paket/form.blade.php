@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('judul','Tambah Data Paket')
 @section('content-header')
+
 <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
@@ -24,8 +25,8 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
+        <h3 class="card-title">Title</h3>
         
-
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
             <i class="fas fa-minus"></i>
@@ -35,6 +36,7 @@
           </button>
         </div>
       </div>
+
       <div class="card-body">
         <form method="POST" action="/paket">
             @csrf
@@ -43,9 +45,14 @@
               <input type="text" name="kode" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Paket</label>
-              <input type="text" name="paket" class="form-control" id="exampleInputPassword1">
+              <label for="exampleInputPassword1" class="form-label">Nama Paket</label>
+              <input type="text" name="nm_paket" class="form-control" id="exampleInputPassword1">
             </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Harga</label>
+              <input type="text" name="harga_paket" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+
             <button type="submit" class="btn btn-primary">Tambah Data</button>
           </form>
       </div>
